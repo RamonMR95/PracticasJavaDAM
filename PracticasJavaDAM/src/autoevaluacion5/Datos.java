@@ -28,24 +28,23 @@ public class Datos {
 	}
 
 	public static void importarUsuariosTexto(String texto) {
-		String[] result = texto.split(";");
-		String[] persona;
+		String[] usuarios = texto.split(";");
+		String[] atributosPersona;
 
-		for (int i = 0; i < result.length; i++) {
-			persona = result[i].split(",");
+		for (int i = 0; i < usuarios.length; i++) {
+			atributosPersona = usuarios[i].split(",");
 			
-			Usuario usr = new Usuario();
-			usr.nif = persona[0];
-			usr.nombre = persona[1];
-			usr.apellidos = persona[2];
-			usr.domicilio = persona[3];
-			usr.correo = persona[4];
-			usr.fechaNacimiento = persona[5];
-			usr.fechaAlta = persona[6];
-			usr.claveAcceso = persona[7];
-			usr.rol = persona[8];
-		
-			datosUsuarios[i] = usr;
+			datosUsuarios[i] = new Usuario();
+			datosUsuarios[i].nif = atributosPersona[0];
+			datosUsuarios[i].nombre = atributosPersona[1];
+			datosUsuarios[i].apellidos = atributosPersona[2];
+			datosUsuarios[i].domicilio = atributosPersona[3];
+			datosUsuarios[i].correo = atributosPersona[4];
+			datosUsuarios[i].fechaNacimiento = atributosPersona[5];
+			datosUsuarios[i].fechaAlta = atributosPersona[6];
+			datosUsuarios[i].claveAcceso = atributosPersona[7];
+			datosUsuarios[i].rol = atributosPersona[8];
+
 		}
 
 	}
@@ -54,7 +53,7 @@ public class Datos {
 
 /**
  * Clase que representa el usuario de un sistema.
- * @author ajp
+ * @author Ramón Moñino
  */
 class Usuario {
 
