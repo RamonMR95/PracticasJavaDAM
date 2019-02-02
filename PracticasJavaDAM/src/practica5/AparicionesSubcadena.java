@@ -1,6 +1,5 @@
 package practica5;
 
-
 /**
  * AparicionesSubcadena.java 
  * Ejercicio 3 verde 

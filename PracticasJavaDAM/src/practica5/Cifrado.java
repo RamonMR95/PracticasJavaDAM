@@ -1,5 +1,12 @@
 package practica5;
 
+/**
+ * Cifrado.java 
+ * Ejercicio 9 Violeta
+ * Programa que encripta una contraseña dada una clave en forma de texto
+ * @author Ramon Monino Rubio 
+ * 2019.01.17
+ */
 public class Cifrado {
 	private static String texto = "HOLA";
 	private static String clave = "claveX";

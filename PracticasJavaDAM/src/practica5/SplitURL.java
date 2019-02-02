@@ -1,5 +1,12 @@
 package practica5;
 
+/**
+ * Pad.java 
+ * Ejercicio 8 Violeta
+ * Programa que divide una url dadas unas condiciones
+ * @author Ramon Monino Rubio 
+ * 2019.01.17
+ */
 public class SplitURL {
 	private static String URL = "http://www.devbg.org/forum/index.php";
 
