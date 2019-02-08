@@ -4,7 +4,7 @@ package practica6;
  * Representa la implementación más sencilla y básica de una lista enlazada
  * simple con acceso sólo al principio de la serie de nodos.
  */
-public class ListaEnlazada {
+public class ListaEnlazada2_3_4 {
 	// Atributos
 	private Nodo primero;
 	private int numElementos;
@@ -13,7 +13,7 @@ public class ListaEnlazada {
 	/**
 	 * Constructor que inicializa los atributos al valor por defecto.
 	 */
-	public ListaEnlazada() {
+	public ListaEnlazada2_3_4() {
 		primero = null;
 		numElementos = 0;
 	}
@@ -38,6 +38,31 @@ public class ListaEnlazada {
 	}
 
 	/**
+	 * Metodo que añade un dato a la lista en un indice concreto de éste
+	 * 
+	 * @param indice - posicion del nodo a obtener.
+	 * @param dato   - Dato a añadir a la lista
+	 */
+	public void add(int indice, Object dato) {
+		Nodo nuevo = new Nodo(dato);
+		Nodo actual = primero;
+
+		if (numElementos == 0) {
+			primero = nuevo;
+
+		} else {
+			for (int i = 0; i < indice - 1; i++) {
+				actual = actual.siguiente;
+			}
+			nuevo.siguiente = actual.siguiente;
+			actual.siguiente = nuevo;
+
+		}
+		numElementos++;
+
+	}
+
+	/**
 	 * Obtiene el nodo correspondiente al índice. Recorre secuencialmente la cadena
 	 * de enlaces.
 	 * @param indice - posición del nodo a obtener.
@@ -47,10 +72,10 @@ public class ListaEnlazada {
 	 */
 	private Nodo obtenerNodo(int indice) {
 		// Lanza excepción si el índice no es válido.
-		if (indice >= numElementos || indice < 0) {
+		if (indice > numElementos || indice < 0) {
 			throw new IndexOutOfBoundsException("Índice incorrecto: " + indice);
 		}
-		// Recorre la lista hasta llegar al nodo  de posición buscada.
+		// Recorre la lista hasta llegar al nodo de posición buscada.
 		Nodo actual = primero;
 		for (int i = 0; i < indice; i++)
 			actual = actual.siguiente;
@@ -80,6 +105,7 @@ public class ListaEnlazada {
 
 	/**
 	 * Elimina el primer elemento.
+	 * 
 	 * @return - el elemento eliminado o null si la lista está vacía.
 	 */
 	private Object removePrimero() {
@@ -122,6 +148,23 @@ public class ListaEnlazada {
 		return actual;
 	}
 
+	public void removeAll(ListaEnlazada2_3_4 datosABorrar) {
+		Nodo actual = primero;
+		Nodo actual2 = datosABorrar.primero;
+		Nodo aux;
+		
+		for (int i = 0; i < numElementos -1; i++) {
+			actual = actual.siguiente;
+			
+			for (int j = 0; j < datosABorrar.size(); j++) {
+				actual2 = actual2.siguiente;
+				if (actual.equals(actual2)) {
+					aux = actual;
+					aux.siguiente = actual.siguiente;
+				}
+			}
+		}
+	}
 	/**
 	 * Busca el índice que corresponde a un elemento de la lista.
 	 * @param dato- el objeto elemento a buscar.
@@ -180,22 +223,3 @@ class Nodo {
 	}
 
 } // class
-
-class PruebaListaEnlazada {
-	public static void main(String[] args) {
-		ListaEnlazada listaCompra = new ListaEnlazada();
-		listaCompra.add("Leche");
-		listaCompra.add("Miel");
-		listaCompra.add("Aceitunas");
-		listaCompra.add("Cerveza");
-		listaCompra.add("Café");
-		System.out.println("Lista de la compra:");
-		for (int i = 0; i < listaCompra.size(); i++) {
-			System.out.println(listaCompra.get(i));
-		}
-		System.out.println("elementos en la lista: " + listaCompra.size());
-		System.out.println("elementos 3 en la lista: " + listaCompra.get(3));
-		System.out.println("posición del elemento Miel: " + listaCompra.indexOf("Miel"));
-		System.out.println("eliminado: " + listaCompra.remove("Miel"));
-	}
-}
