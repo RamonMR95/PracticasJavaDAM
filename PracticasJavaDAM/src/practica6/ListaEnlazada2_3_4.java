@@ -51,7 +51,7 @@ public class ListaEnlazada2_3_4 {
 			primero = nuevo;
 
 		} else {
-			for (int i = 0; i < indice - 1; i++) {
+			for (int i = 0; i < indice; i++) {
 				actual = actual.siguiente;
 			}
 			nuevo.siguiente = actual.siguiente;

@@ -9,6 +9,7 @@ public class PruebaListaEnlazada {
 		listaCompra.add("Cerveza");
 		listaCompra.add("Café");
 		listaCompra.add(5, "Almendras");
+		
 		System.out.println("Lista de la compra:");
 		for (int i = 0; i < listaCompra.size(); i++) {
 			System.out.println(listaCompra.get(i));
