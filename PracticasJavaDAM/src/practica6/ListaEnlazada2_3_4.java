@@ -39,7 +39,6 @@ public class ListaEnlazada2_3_4 {
 
 	/**
 	 * Metodo que añade un dato a la lista en un indice concreto de éste
-	 * 
 	 * @param indice - posicion del nodo a obtener.
 	 * @param dato   - Dato a añadir a la lista
 	 */
@@ -70,7 +69,7 @@ public class ListaEnlazada2_3_4 {
 	 * @exception IndexOutOfBoundsException - índice no está entre 0 y
 	 *                                      numElementos-1
 	 */
-	private Nodo obtenerNodo(int indice) {
+	public Nodo obtenerNodo(int indice) {
 		// Lanza excepción si el índice no es válido.
 		if (indice > numElementos || indice < 0) {
 			throw new IndexOutOfBoundsException("Índice incorrecto: " + indice);
@@ -105,7 +104,6 @@ public class ListaEnlazada2_3_4 {
 
 	/**
 	 * Elimina el primer elemento.
-	 * 
 	 * @return - el elemento eliminado o null si la lista está vacía.
 	 */
 	private Object removePrimero() {
