@@ -200,7 +200,6 @@ public class ListaEnlazada2_3_4 {
 		return numElementos;
 	}
 
-} // class
 
 /**
  * Representa la estructura de un nodo para una lista dinámica con enlace
@@ -220,4 +219,6 @@ class Nodo {
 		siguiente = null;
 	}
 
+	} // class
 } // class
+
