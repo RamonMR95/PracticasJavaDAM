@@ -40,30 +40,40 @@ public class ListaLink {
 		numElementos = 0;
 	}
 
-	public void add(Object dato, int indice) {
+	public void add(int indice, Object dato) {
 		assert dato != null;
 
-		Nodo actual = primero;
 		Nodo nuevo = new Nodo();
 		nuevo.dato = dato;
+		Nodo actual = primero;
 
 		if (numElementos == 0) {
 			primero = nuevo;
-
-		} else if (indice == numElementos - 1) {
+			ultimo = nuevo;
+			
+		} else if (indice == numElementos && numElementos != 0) {
 			ultimo.siguiente = nuevo;
 			nuevo.siguiente = null;
 			ultimo = nuevo;
-
+			
 		} else {
-
-			for (int i = 0; i < indice; i++) {
+			for (int i = 0; i < indice - 1; i++) {
 				actual = actual.siguiente;
 			}
 			nuevo.siguiente = actual.siguiente;
 			actual.siguiente = nuevo;
 
 		}
+		numElementos++;
 
+	}
+
+	public void visualizar() {
+		Nodo actual = primero;
+
+		for (int i = 0; i < numElementos; i++) {
+			System.out.println(actual.dato);
+			actual = actual.siguiente;
+		}
 	}
 } // class listaLink
