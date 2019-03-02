@@ -1,5 +1,12 @@
 package practica6;
 
+/**
+ * ListaArray.java
+ * Ejercicio 1 Naranja
+ * Copia y pega de forma completa la implementación de lista basada en array
+ * @author - Ramon Moñino Rubio
+ *
+ */
 public class ListaArray {
 
 	// Atributos
@@ -25,7 +32,6 @@ public class ListaArray {
 
 	/**
 	 * Añade un elemento a la lista
-	 * 
 	 * @param elemento - el elemento a añadir
 	 */
 	public void add(Object elemento) {
@@ -54,7 +60,6 @@ public class ListaArray {
 
 	/**
 	 * Inserta un elemento en la posición especificada por el índice.
-	 * 
 	 * @param indice   - indica la posición de inserción en la lista.
 	 * @param elemento - elemento a insertar.
 	 * @throws IndexOutOfBoundsException
@@ -76,7 +81,6 @@ public class ListaArray {
 
 	/**
 	 * Devuelve el índice de la primera ocurrencia para el objeto especificado.
-	 * 
 	 * @param elem - el elemento buscado.* @return el índice del elemento o -1 si no
 	 *             lo encuentra.
 	 */
@@ -107,7 +111,6 @@ public class ListaArray {
 
 	/**
 	 * Comprueba si existe un elemento.
-	 * 
 	 * @param elem – el elemento a comprobar.
 	 * @return true - si existe.
 	 */
@@ -117,14 +120,13 @@ public class ListaArray {
 
 	/**
 	 * Obtiene el elemento-dato por índice.
-	 * 
 	 * @param indice - posión relativa del nodo que contiene el elemento-dato.
 	 * @return el dato indicado por el índice de nodo; null si está indefinido.
 	 * @exception IndexOutOfBoundsException - índice no está entre 0 y
 	 *                                      numElementos-1.
 	 */
 	public Object get(int indice) {
-// El índice debe ser válido para la lista.
+		// El índice debe ser válido para la lista.
 		if (indice >= numElementos || indice < 0) {
 			throw new IndexOutOfBoundsException("Índice incorrecto: " + indice);
 		}
@@ -133,22 +135,21 @@ public class ListaArray {
 
 	/**
 	 * Elimina el elemento especificado en el índice.
-	 * 
 	 * @param indice - del elemento a eliminar.
 	 * @return - el elemento eliminado.
 	 * @exception IndexOutOfBoundsException - índice no está entre 0 y
 	 *                                      numElementos-1.
 	 */
 	public Object remove(int indice) {
-// El índice debe ser válido para la lista.
+		// El índice debe ser válido para la lista.
 		if (indice >= numElementos || indice < 0) {
 			throw new IndexOutOfBoundsException("Índice incorrecto: " + indice);
 		}
-// Elimina desplazando uno hacia la izquierda, sobre la posición a borrar.
+		// Elimina desplazando uno hacia la izquierda, sobre la posición a borrar.
 		Object elem = arrayElementos[indice];
 		System.arraycopy(arrayElementos, indice + 1, arrayElementos, indice, numElementos - indice + 1);
 
-// Ajusta el último elemento.
+		// Ajusta el último elemento.
 		arrayElementos[numElementos - 1] = null;
 		numElementos--;
 		return elem;
@@ -156,7 +157,6 @@ public class ListaArray {
 
 	/**
 	 * Elimina el elemento especificado.
-	 * 
 	 * @param elemento - elemento a eliminar.
 	 * @return - el índice del elemento eliminado o -1 si no existe.
 	 */
@@ -170,13 +170,14 @@ public class ListaArray {
 	}
 
 	public static void main(String[] args) {
-		ListaArray listaCompra = new ListaArray();;
+		ListaArray listaCompra = new ListaArray();
+		;
 		listaCompra.add("Leche");
 		listaCompra.add("Miel");
-//		listaCompra.add("Aceitunas");
-//		listaCompra.add("Cerveza");
-//		listaCompra.remove("Aceitunas");
-//		listaCompra.add(1, "Fruta");
+		listaCompra.add("Aceitunas");
+		listaCompra.add("Cerveza");
+		listaCompra.remove("Aceitunas");
+		listaCompra.add(1, "Fruta");
 //		listaCompra.add(5, "Queso");
 
 		System.out.format("Los %d elementos de la lista de la compra son:\n", listaCompra.size());

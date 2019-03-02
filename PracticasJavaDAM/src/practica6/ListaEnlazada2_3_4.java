@@ -1,8 +1,10 @@
 package practica6;
 
 /**
- * Representa la implementación más sencilla y básica de una lista enlazada
- * simple con acceso sólo al principio de la serie de nodos.
+ * ListaEnlazada2_3_4.java
+ * Ejercicios 2, 3 y 4 verdes
+ * @author - Ramon Monino Rubio - 2019.02.14
+ *
  */
 public class ListaEnlazada2_3_4 {
 	// Atributos
@@ -146,23 +148,29 @@ public class ListaEnlazada2_3_4 {
 		return actual;
 	}
 
+	/**
+	 * Sirve para poder eliminar de la lista todos los elementos que se le
+	 * proporcionan en otra lista pasada como argumento
+	 * @param datosABorrar - Lista que contiene los términos que queremos borrar
+	 */
 	public void removeAll(ListaEnlazada2_3_4 datosABorrar) {
 		Nodo actual = primero;
-		Nodo actual2 = datosABorrar.primero;
-		Nodo aux;
+		Nodo borrar = datosABorrar.primero;
 		
-		for (int i = 0; i < numElementos -1; i++) {
-			actual = actual.siguiente;
-			
-			for (int j = 0; j < datosABorrar.size(); j++) {
-				actual2 = actual2.siguiente;
-				if (actual.equals(actual2)) {
-					aux = actual;
-					aux.siguiente = actual.siguiente;
+		for (int i = 0; i < datosABorrar.size() -1; i++) {
+			borrar = borrar.siguiente;
+			for (int j = 0; j < numElementos -1; j++) {
+				actual = actual.siguiente;
+				if (borrar.dato.equals(actual.dato)) {
+					remove(actual.dato);
+				} else {
+					break;
 				}
 			}
 		}
+
 	}
+	
 	/**
 	 * Busca el índice que corresponde a un elemento de la lista.
 	 * @param dato- el objeto elemento a buscar.

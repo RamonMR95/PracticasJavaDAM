@@ -3,8 +3,9 @@ package practica6;
 import java.util.ArrayList;
 
 /**
- * Stack.java Ejercicio 6 verde Programa que implementa funciones de una pila
- * 
+ * Pila.java 
+ * Ejercicio 6 verde 
+ * Programa que implementa funciones de una pila con un arraylist
  * @author Ramon Monino Rubio - 2019.02.14
  */
 
@@ -24,22 +25,22 @@ class Stack {
 	}
 
 	public Object peek() {
-		int tamaño = pila.size();
-		return pila.get(tamaño - 1);
+		int indice = pila.size() - 1;
+		return pila.get(indice);
 	}
 
-	public  Object pop() {
-		int tamaño = pila.size();
-		return pila.remove(tamaño - 1);
+	public Object pop() {
+		int indice = pila.size() - 1;
+		return pila.remove(indice);
 	}
 
 	public void push(Object obj) {
 		int size = pila.size();
-		
+
 		if (size == 0) {
 			pila.add(obj);
 		} else {
-			pila.add(size -1 , obj);
+			pila.add(size, obj);
 		}
 
 	}
@@ -52,16 +53,26 @@ class Stack {
 		return pila.toArray();
 	}
 
-	
 } // Class
 
 public class Pila {
 	public static void main(String[] args) {
 		Stack pila = new Stack();
 		pila.push(1);
-		System.out.println(pila.size());
+		System.out.println("El dato de la cima de la pila es : " + pila.peek());
+		System.out.println("El tamaño de la pila es " + pila.size());
+		System.out.println("La pila está vacia? :" + pila.isEmpty());
+		System.out.println("La pila contiene 1? " + pila.contains(1) + "\n");
+
+		pila.push(2);
+		System.out.println("El tamaño de la pila es " + pila.size());
+		System.out.println("El dato de la cima de la pila es : " + pila.peek() + "\n");
+
 		pila.pop();
-		pila.peek();
-		
+		System.out.println("El dato de la cima de la pila es : " + pila.peek() + "\n");
+
+		pila.clear();
+		System.out.println("El tamaño de la pila es " + pila.size());
+
 	}
 }
