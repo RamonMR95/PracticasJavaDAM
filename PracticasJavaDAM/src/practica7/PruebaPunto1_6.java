@@ -1,7 +1,7 @@
 package practica7;
 
 /**
- * PruebaPunto.java 
+ * Punto.java 
  * Ejercicio 1 naranja 
  * Programa que implementa un Punto con unas coordenadas
  * @author Ramon Monino Rubio - 2019.03.12
@@ -76,7 +76,7 @@ class Punto {
  * Clase que prueba el punto
  * @author Ramon Moñino Rubio
  */
-public class PruebaPunto{
+public class PruebaPunto1_6{
 	
 	public static void main(String[] args) {
 		// Creo un punto y lo muestro
