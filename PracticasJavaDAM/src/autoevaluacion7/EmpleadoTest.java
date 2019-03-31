@@ -50,17 +50,17 @@ public class EmpleadoTest {
 		assertEquals(empleado1.getNombre(), "Antonio Martinez Martinez");
 		assertEquals(empleado1.getSueldo(), 50000);
 		assertEquals(empleado1.getEdad(), 35);
-		assertEquals(empleado1.getPuesto(), new PuestoTrabajo("Jornalero"));
+		assertEquals(empleado1.getPuesto().getPuesto(), new PuestoTrabajo("Jornalero").getPuesto());
 	}
 	
 	/* Test que prueba el constructor por defecto de la clase empleado */
 	@Test
 	public void testEmpleadoDefecto() {
 		try {
-			assertEquals(empleado2.getNombre(), "Nombre Apellido Apellido");
+			assertEquals(empleado2.getNombre(), "Ramon Moñino Rubio");
 			assertEquals(empleado2.getSueldo(), 100000);
 			assertEquals(empleado2.getEdad(), 35);
-			assertEquals(empleado2.getPuesto(), new PuestoTrabajo("Prueba"));
+			assertEquals(empleado2.getPuesto().getPuesto(), new PuestoTrabajo("Prueba").getPuesto());
 		} 
 		catch (Exception e) { }
 	}
@@ -73,7 +73,7 @@ public class EmpleadoTest {
 		assertEquals(empleado.getNombre(), empleado1.getNombre());
 		assertEquals(empleado.getSueldo(), empleado1.getSueldo());	
 		assertEquals(empleado.getEdad(), empleado1.getEdad());
-		assertNotSame(empleado.getPuesto(), empleado1.getPuesto());
+		assertEquals(empleado.getPuesto().getPuesto(), empleado1.getPuesto().getPuesto());
 	}
 	
 	/* Test que prueba el método setNombre */
@@ -111,7 +111,7 @@ public class EmpleadoTest {
 	public void testSetPuestoTrabajo() {
 		try {
 			empleado2.setPuesto(new PuestoTrabajo("Prueba"));
-			assertEquals(empleado2.getPuesto(), new PuestoTrabajo("Prueba"));
+			assertEquals(empleado2.getPuesto().getPuesto(), new PuestoTrabajo("Prueba").getPuesto());
 		}
 		catch (Exception e) { }
 
@@ -120,8 +120,7 @@ public class EmpleadoTest {
 	/* Test que comprueba el metodo toString de la clase empleado */
 	@Test
 	public void testToString() {
-		System.out.println(empleado1.toString());
-		assertEquals(empleado1.toString(), "Empleado [nombre=Antonio Martinez Martinez, sueldo=50000.0, edad=35, puesto=PuestoTrabajo [nombrePuesto=Jornalero]]");
+		assertEquals(empleado1.toString(), "Nombre : " + "Antonio Martinez Martinez" + ", sueldo : " + "50000.0" + ", edad : " + "35" + ", puesto : " + "Jornalero");
 	}
 	
 	// TEST CON DATOS NO VÁLIDOS
@@ -173,7 +172,7 @@ public class EmpleadoTest {
 	public void testSetEdadSuperior() {
 		try {
 			empleado2.setEdad(70);
-			assertNotEquals(empleado2.getEdad(), 70);
+			assertNotEquals(empleado2.getEdad(), 35);
 		} 
 		catch (Exception e) { }
 	}

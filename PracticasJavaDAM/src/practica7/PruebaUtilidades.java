@@ -1,12 +1,17 @@
 package practica7;
 
+/**
+ * Ejercicio 8 y 9 Verde
+ * @source PruebaUtilidades.java
+ * @author Ramon Monino Rubio - 2019.03.31
+ */
 class Utilidades {
 	// Texto que formará la clave a encriptar
 	private String texto;
 
 	/**
 	 * Constructor convencional de la clase Utilidades
-	 * @param texto
+	 * @param texto - Texto que forma la clave
 	 */
 	public Utilidades(String texto) {
 		this.texto = texto;

@@ -2,7 +2,7 @@ package practica7;
 
 /**
  * Punto.java 
- * Ejercicio 1 naranja 
+ * Ejercicio 1 naranja
  * Programa que implementa un Punto con unas coordenadas
  * @author Ramon Monino Rubio - 2019.03.12
  */

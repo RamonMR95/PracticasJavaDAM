@@ -12,17 +12,24 @@ class Cuadrante {
 	private Punto punto;
 
 	/**
-	 * Constructor por defecto de la clase Cuadrante
+	 * Constructor por convencional de la clase Cuadrante
 	 * @param punto - A conocer su cuadrante
 	 */
 	public Cuadrante(Punto punto) {
 		this.punto = punto;
 	}
 	
+	/**
+	 * Constructor por defecto de la clase cuadrante con un punto en el Origen de coordenadas
+	 */
 	public Cuadrante() {
 		this.punto = new Punto();
 	}
 
+	/**
+	 * Metodo que obtiene el cuadrante en el que se encuentra el punto
+	 * @return cuadrante - Cuadrante en el que se encuentra el punto
+	 */
 	public String getCuadrante() {
 		if (this.punto.getX() >= 0 && this.punto.getY() >= 0) {
 			return "primer cuadrante";
@@ -43,6 +50,10 @@ class Cuadrante {
 		return "Coordenadas inválidas";
 	}
 
+	/**
+	 * Metodo que obtiene el punto
+	 * @return punto - Punto a comprobar su cuadrante
+	 */
 	public Punto getPunto() {
 		return punto;
 	}

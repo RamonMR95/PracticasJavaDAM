@@ -43,7 +43,7 @@ public class Empleado {
 	 * @throws Exception - Lanza una excepción si el nombre no cumple el formato válido.
 	 */
 	public Empleado() throws Exception {
-		this("Nombre Apellido Apellido", 100000, 35, new PuestoTrabajo("Prueba"));
+		this("Ramon Moñino Rubio", 100000, 35, new PuestoTrabajo("Prueba"));
 	}
 	
 	/**
@@ -61,6 +61,7 @@ public class Empleado {
 	 */
 	public void setNombre(String nombre) throws Exception {
 		assert nombre != null;
+		
 		if (isNombreValido(nombre)) {
 			this.nombre = nombre;
 		}
@@ -89,12 +90,31 @@ public class Empleado {
 	/**
 	 * Metodo set que establece el sueldo del empleado
 	 * @param sueldo - Sueldo del empleado
+	 * @throws Exception - Lanza excepción si el sueldo no cumple el formato.
 	 */
-	public void setSueldo(double sueldo) {
-		assert sueldo > 10000;
-		this.sueldo = sueldo;
+	public void setSueldo(double sueldo) throws Exception {
+		if (isSueldoValido(sueldo)) {
+			this.sueldo = sueldo;
+		}
+		else {
+			throw new Exception("El sueldo no cumple el formato");
+		}
 	}
 
+	/**
+	 * Metodo que comprueba si el sueldo es válido
+	 * @param sueldo - Sueldo del empleado
+	 * @return true - Si el sueldo es mayor de 10000€
+	 * @throws Exception
+	 */
+	public boolean isSueldoValido(double sueldo) throws Exception {
+		if (sueldo > 10000) {
+			return true;
+		}
+		return false;
+
+	}
+	
 	/**
 	 * Metodo get que obtiene la edad del empleado.
 	 * @return edad - Edad del empleado
@@ -106,12 +126,27 @@ public class Empleado {
 	/**
 	 * Metodo set que establece la edad del empleado
 	 * @param edad - Edad del empleado
+	 * @throws Exception 
 	 */
-	public void setEdad(int edad) {
-		assert edad > 16 && edad < 65;
-		this.edad = edad;
+	public void setEdad(int edad) throws Exception {
+		if (isEdadValida(edad)) {
+			this.edad = edad;
+		}
+		else {
+			throw new Exception("La edad no cumple el formato");
+		}
+		
 	}
 
+	/**
+	 * Metodo que comprueba si la edad es válida
+	 * @param edad - Edad del empleado
+	 * @return true - si la edad cumple el formato
+	 */
+	public boolean isEdadValida(int edad) {
+		return edad > 16 && edad < 65;
+	}
+	
 	/**
 	 * Metodo get que obtiene el puesto de trabajo que ejerce el empleado
 	 * @return puesto - Puesto que ocupa el empleado
@@ -134,7 +169,7 @@ public class Empleado {
 	 */
 	@Override
 	public String toString() {
-		return "Empleado [nombre=" + nombre + ", sueldo=" + sueldo + ", edad=" + edad + ", puesto=" + puesto + "]";
+		return "Nombre : " + nombre + ", sueldo : " + sueldo + ", edad : " + edad + ", puesto : " + puesto.getPuesto();
 	}
 
 	/* Metodo hashCode de la clase */
