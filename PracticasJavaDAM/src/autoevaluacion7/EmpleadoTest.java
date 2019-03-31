@@ -17,19 +17,26 @@ public class EmpleadoTest {
 	private static Empleado empleado1;
 	private Empleado empleado2;
 	
-	/* En primer lugar se inicializan los campos del objeto empleado1*/
+	/**
+	 * Metodo que se ejecuta antes de cada Test para preparar datos de prueba.
+	 * @throws Exception
+	 */
 	@BeforeAll
 	public static void inicializarDatosFijos() throws Exception {
 		empleado1 = new Empleado("Antonio Martinez Martinez", 50000, 35, new PuestoTrabajo("Jornalero"));
 	}
 
-	/* Despues de todos los test se establece el objeto empleado1 a null */
+	/**
+	 * Metodo que se ejecuta una sola vez al final del conjunto pruebas.
+	 */
 	@AfterAll
 	public static void limpiarDatosFijos() {
 		empleado1 = null;
 	}
 	
-	/* Antes de cada test se inicializan los datos del empleado2 con los valores por defecto de empleado*/
+	/**
+	 * Metodo que se ejecuta antes de cada prueba 
+	 */
 	@BeforeEach
 	public void inicializarDatosVariables() {
 		try {
@@ -38,13 +45,19 @@ public class EmpleadoTest {
 		catch (Exception e) { }
 	}
 	
-	/* Después de cada test el objeto empleado2 se establece a null */
+	/**
+	 * Metodo que se ejecuta deespues de cada test para limpiar los datos de prueba
+	 */
 	@AfterEach
 	public void borrarDatosPrueba() {
 		empleado2 = null;
 	}
 	
-	/* Test que prueba el constructor por convencional de la clase empleado */
+	// TEST CON DATOS VÁLIDOS
+	
+	/**
+	 * Test del constructor convencional de la clase Empleado
+	 */
 	@Test
 	public void testEmpleadoConvencional() {
 		assertEquals(empleado1.getNombre(), "Antonio Martinez Martinez");
@@ -53,7 +66,9 @@ public class EmpleadoTest {
 		assertEquals(empleado1.getPuesto().getPuesto(), new PuestoTrabajo("Jornalero").getPuesto());
 	}
 	
-	/* Test que prueba el constructor por defecto de la clase empleado */
+	/**
+	 * Test del constructor por defecto de la clase Empleado
+	 */
 	@Test
 	public void testEmpleadoDefecto() {
 		try {
@@ -65,7 +80,9 @@ public class EmpleadoTest {
 		catch (Exception e) { }
 	}
 	
-	/* Test que prueba el constructor copia de empleado */
+	/**
+	 * Test del constructor copia de la clase Empleado
+	 */
 	@Test
 	public void testEmpleadoCopia() {
 		Empleado empleado = new Empleado(empleado1);
@@ -126,12 +143,12 @@ public class EmpleadoTest {
 	// TEST CON DATOS NO VÁLIDOS
 
 	@Test
-	public void testSetNombreNull() {
+	public void testSetNombreNull() throws Exception {
 		try {
 			empleado2.setNombre(null);
 			fail("No debe llegar aquí...");
 		} 
-		catch (Exception e) {
+		catch (AssertionError e) {
 			assertTrue(empleado2.getNombre() != null);
 		}
 	}
@@ -184,7 +201,7 @@ public class EmpleadoTest {
 			empleado2.setPuesto(null);
 			fail("No debe llegar aquí...");
 		} 
-		catch (Exception e) {
+		catch (AssertionError e) {
 			assertTrue(empleado2.getPuesto() != null);
 		}
 	}
