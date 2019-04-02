@@ -2,6 +2,8 @@ package practica8;
 
 import java.util.ArrayList;
 
+import practica8.ejercicio1.Trabajador;
+
 /**
  * Ejercicio 3 verde
  * Comprueba la funcionalidad de comparable en Trabajador
