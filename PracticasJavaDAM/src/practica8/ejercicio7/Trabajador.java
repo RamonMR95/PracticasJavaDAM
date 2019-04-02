@@ -9,15 +9,15 @@ public class Trabajador extends Humano implements Comparable<Trabajador> {
 	private double horasTrabajadas;
 	private ArrayList<Trabajador> listaTrabajadores;
 	
-	public Trabajador(String nombre, String apellidos) {
+	public Trabajador(String nombre, String apellidos, double sueldo, double horasTrabajadas) {
 		super(nombre, apellidos);
-		listaTrabajadores = new ArrayList<>();
-		cargarTrabajadores();
+		this.sueldo = sueldo;
+		this.horasTrabajadas = horasTrabajadas;
+		this.listaTrabajadores = new ArrayList<>();
 	}
 	
 	public Trabajador() {
-		super("Nombre", "Apellidos");
-		listaTrabajadores = new ArrayList<>();
+		this("Nombre", "Apellidos",0 , 0);
 		cargarTrabajadores();
 	}
 	
@@ -26,11 +26,8 @@ public class Trabajador extends Humano implements Comparable<Trabajador> {
 	}
 	
 	public void cargarTrabajadores() {
-		for (double i = 0; i < listaTrabajadores.size(); i++) {
-			Trabajador trabajador = new Trabajador("Nombre " + i, "Apellidos " + i);
-			trabajador.sueldo = i * 2;
-			trabajador.horasTrabajadas = i * 2;
-			listaTrabajadores.add(trabajador);
+		for (int i = 0; i < 10; i++) {
+			this.listaTrabajadores.add(new Trabajador("Nombre ", "Apellidos ", i * 2, i));
 		}
 	}
 
