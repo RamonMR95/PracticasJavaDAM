@@ -1,4 +1,4 @@
-package practica8;
+package practica8.ejercicio4;
 
 /**
  * Ejercicio 4 verde
