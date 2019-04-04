@@ -1,7 +1,6 @@
 package practica8.ejercicio1;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Ejercicio 1 - 2
@@ -13,40 +12,55 @@ import java.util.Collections;
 public class Estudiante extends Persona implements Comparable<Estudiante> { 
 	
 	private int evaluacion;
-	private ArrayList<Estudiante> estudiantes;
 	
+	/**
+	 * Constructor convencional de la clase Estudiante
+	 * @param nombre - Nombre del estudiante
+	 * @param apellidos - Apellidos del estudiante
+	 * @param evaluacion - Nota del estudiante
+	 */
 	public Estudiante(String nombre, String apellidos, int evaluacion) {
 		super(nombre, apellidos);
 		this.evaluacion = evaluacion;
 	}
 	
+	/**
+	 * Constructor por defecto de la clase Estudiante
+	 */
 	public Estudiante() {
 		this("Prueba", "Prueba" , 0);
-		estudiantes = new ArrayList<>();
-		cargarEstudiantes();
+		
 	}
 
+	/**
+	 * Metodo get que obtiene la nota del estudiante
+	 * @return
+	 */
 	public int getEvaluacion() {
 		return evaluacion;
 	}
 
+	/**
+	 * Metodo set que establece la nota del estudiante
+	 * @param evaluacion - Nota del estudiante
+	 */
 	public void setEvaluacion(int evaluacion) {
 		this.evaluacion = evaluacion;
 	}
 	
-	public ArrayList<Estudiante> getEstudiantes(){
-		return estudiantes;
-	}
-	
+	/**
+	 * Implementación del metodo toString de la clase para imprimir el valor de los atributos de la clase.
+	 * @return toString - Cadena de caracteres que contiene los valores de los atributos de la clase.
+	 */
 	@Override
 	public String toString() {
 		return super.toString() + " , Evaluacion : " + evaluacion; 
 	}
 
-	public void ordenarPorNota() {
-		Collections.sort(estudiantes);
-	}
-	
+	/**
+	 * Implementación del método compareTo para ordenar estudiantes según su nota
+	 * @param o - Estudiante a ordenar
+	 */
 	@Override
 	public int compareTo(Estudiante o) {
 		int result = 0;
@@ -60,9 +74,16 @@ public class Estudiante extends Persona implements Comparable<Estudiante> {
 		return result;
 	}
 	
-	public void cargarEstudiantes() {
+	/**
+	 * Metodo de carga de Estudiantes en un array
+	 * @return lista de estudiantes - ArrayList con estudiantes de prueba
+	 */
+	public ArrayList<Estudiante> cargarEstudiantes() {
+		ArrayList<Estudiante> estudiantes = new ArrayList<>();
+		
 		for (int i = 0; i < 10; i++) {
 			estudiantes.add(new Estudiante("Nombre" + 1, "apellidos" + 1, i + 1));
 		}
+		return estudiantes;
 	}
 }

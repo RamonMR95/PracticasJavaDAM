@@ -1,6 +1,7 @@
 package practica8.ejercicio3;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import practica8.ejercicio1.Trabajador;
 
@@ -14,13 +15,15 @@ import practica8.ejercicio1.Trabajador;
 public class PruebaComparableTrabajadores {
 
 	public static void main(String[] args) {
+		
+		ArrayList<Trabajador> listaTrabajadores = new ArrayList<>();
 		Trabajador trabajador = new Trabajador();
-		trabajador.OrdenarPorSalario();
+		listaTrabajadores = trabajador.cargarTrabajadores();
+		Collections.sort(listaTrabajadores);
 		
-		ArrayList<Trabajador> trabajadores = trabajador.getTrabajadores();
 		
-		for (int i = 0; i < trabajadores.size(); i++) {
-			System.out.println(trabajadores.get(i));
+		for (int i = 0; i < listaTrabajadores.size(); i++) {
+			System.out.println(listaTrabajadores.get(i));
 		}
 	}
 }

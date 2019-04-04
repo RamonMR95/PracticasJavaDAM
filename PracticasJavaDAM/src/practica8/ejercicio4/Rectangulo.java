@@ -9,11 +9,20 @@ package practica8.ejercicio4;
 
 public class Rectangulo extends FiguraGeometrica {
 
+	/**
+	 * Constructor convencional de la clase Rectangulo.
+	 * @param alto - Alto del rectangulo
+	 * @param ancho - Ancho del rectangulo
+	 */
 	public Rectangulo(double alto, double ancho) {
 		super(alto, ancho);
 
 	}
 
+	/**
+	 * Implementación del metodo abstracto calcularArea de {@link FiguraGeometrica} aplicado a un rectangulo.
+	 * @return area - Area del rectangulo
+	 */
 	@Override
 	public double calcularArea() {
 		return ancho * alto;

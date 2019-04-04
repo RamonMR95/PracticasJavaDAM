@@ -1,7 +1,6 @@
 package practica8.ejercicio1;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Ejercicio 1 naranja
@@ -15,8 +14,14 @@ public class Trabajador extends Persona implements Comparable<Trabajador>{
 	
 	private double salario;
 	private double horasTrabajadas;
-	private ArrayList<Trabajador> trabajadores;
 	
+	/**
+	 * Constructor convencional de la clase Trabajador
+	 * @param nombre - Nombre del trabajador
+	 * @param apellidos - Apellidos del trabajador
+	 * @param salario - Salario del trabajador
+	 * @param horasTrabajadas - Horas trabajadas por el trabajador
+	 */
 	public Trabajador(String nombre, String apellidos, 
 			double salario, double horasTrabajadas) {
 		
@@ -25,49 +30,72 @@ public class Trabajador extends Persona implements Comparable<Trabajador>{
 		this.horasTrabajadas = horasTrabajadas;
 	}
 	
+	/**
+	 * Constructor por defecto de la clase Trabajador
+	 */
 	public Trabajador() {
-		super("Nombre", "Apellidos");
-		this.salario = 0;
-		this.horasTrabajadas = 0;
-		trabajadores = new ArrayList<>();
-		cargarTrabajadores();;
+		this("Nombre", "Apellidos", 0, 0);
+
 	}
 
+	/**
+	 * Metodo get que obtiene el salario del trabajador
+	 * @return salario - Salario del trabajador
+	 */
 	public double getSalario() {
 		return salario;
 	}
 
+	/**
+	 * Metodo set que establece el salario del trabajador
+	 * @param salario - Salario del trabajador
+	 */
 	public void setSalario(double salario) {
 		this.salario = salario;
 	}
 
+	/**
+	 * Metodo get que obtiene el numero de horas trabajadas por el trabajador
+	 * @return horasTrabajadas - Horas trabajadas por el trabajador
+	 */
 	public double getHorasTrabajadas() {
 		return horasTrabajadas;
 	}
 
+	/**
+	 * Metodo set que establece las horas trabajadas por el trabajador
+	 * @param horasTrabajadas - Horas trabajadas por el trabajador
+	 */
 	public void setHorasTrabajadas(double horasTrabajadas) {
 		this.horasTrabajadas = horasTrabajadas;
 	}
 	
-	public ArrayList<Trabajador> getTrabajadores(){
-		return trabajadores;
-	}
-	
+	/**
+	 * Metodo que calcula el sueldo del trabajador
+	 * @param precioHora - Precio por cada hora de trabajo
+	 */
 	public void calcularSueldo(double precioHora) {
 		this.salario = horasTrabajadas * precioHora;
 	}
 	
-	public void OrdenarPorSalario() {
-		Collections.sort(trabajadores);
-	}
-	
-	
-	public void cargarTrabajadores() {
+	/**
+	 * Metodo que carga una serie de trabajadores en un ArrayList y lo devuelve
+	 * @return lista - Lista trabajadores de prueba
+	 */
+	public ArrayList<Trabajador> cargarTrabajadores() {
+		ArrayList<Trabajador> trabajadores = new ArrayList<>();
+		
 		for (int i = 0; i < 10; i++) {
 			trabajadores.add(new Trabajador("Nombre" + 1, "apellidos" + 1, i + 1, i + 1));
 		}
+		return trabajadores;
 	}
 	
+	/**
+	 * Implementación del método compareTo de la interfaz comparable 
+	 * para ordenar inversamente por salario los trabajadores.
+	 * @param o - Trabajador a ordenar
+	 */
 	@Override
 	public int compareTo(Trabajador o) {
 		int result = 0;
@@ -80,6 +108,10 @@ public class Trabajador extends Persona implements Comparable<Trabajador>{
 		}
 		return result;
 	}
+	
+	/**
+	 * Metodo toString de la clase
+	 */
 	@Override
 	public String toString() {
 		return super.toString() + ", salario : " + salario + ", horas trabajadas : " + horasTrabajadas; 

@@ -1,12 +1,12 @@
-package practica8.ejercicio5;
+package practica8.ejercicio6;
+
 
 /**
- * Ejercicio 5 verde
- * Clase Humano que será heredada por Estudiante y Trabajador en la versión 2
+ * Ejercicio 6 verde
+ * Implementación de la clase Humano
  * @source Humano.java
  * @author Ramon Monino Rubio - 2019.04.02
  */
-
 public class Humano {
 
 	private String nombre;
@@ -21,9 +21,16 @@ public class Humano {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 	}
+	
+	/**
+	 * Constructor por defecto de la clase Humano
+	 */
+	public Humano() {
+		this("Nombre", "Apellidos");
+	}
 
 	/**
-	 * Metodo get que obtiene el nombre del Humano
+	 * Metodo get que obtiene el nombre del humano
 	 * @return nombre - Nombre del humano
 	 */
 	public String getNombre() {
@@ -31,7 +38,7 @@ public class Humano {
 	}
 
 	/**
-	 * Metodo set que establece el nombre del Humano
+	 * Metodo set que establece el nombre del humano
 	 * @param nombre - Nombre del humano
 	 */
 	public void setNombre(String nombre) {
@@ -39,7 +46,7 @@ public class Humano {
 	}
 
 	/**
-	 * Metodo get que obtiene los apellidos del Humano
+	 * Metodo get que obtiene los apellidos del humano
 	 * @return apellidos - Apellidos del humano
 	 */
 	public String getApellidos() {
@@ -53,4 +60,10 @@ public class Humano {
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
+
+	@Override
+	public String toString() {
+		return "Humano [nombre=" + nombre + ", apellidos=" + apellidos + "]";
+	}
+	
 }

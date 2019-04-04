@@ -1,6 +1,7 @@
 package practica8.ejercicio2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import practica8.ejercicio1.Estudiante;
 
@@ -14,13 +15,15 @@ import practica8.ejercicio1.Estudiante;
 public class PruebaComparableEstudiante {
 
 	public static void main(String[] args) {
+		
+		ArrayList<Estudiante> listaEstudiantes = new ArrayList<>();
 		Estudiante estudiante = new Estudiante();
-		estudiante.ordenarPorNota();
+		listaEstudiantes = estudiante.cargarEstudiantes();
+		Collections.sort(listaEstudiantes);
 		
-		ArrayList<Estudiante> estudiantes = estudiante.getEstudiantes();
 		
-		for (int i = 0; i < estudiantes.size(); i++) {
-			System.out.println(estudiantes.get(i));
+		for (int i = 0; i < listaEstudiantes.size(); i++) {
+			System.out.println(listaEstudiantes.get(i));
 		}
 	}
 }

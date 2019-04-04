@@ -1,7 +1,6 @@
 package practica8.ejercicio7;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Ejercicio 7
@@ -13,7 +12,6 @@ public class Trabajador extends Humano implements Comparable<Trabajador> {
 
 	private double sueldo;
 	private double horasTrabajadas;
-	private ArrayList<Trabajador> listaTrabajadores;
 	
 	/**
 	 * Constructor convencional de la clase Trabajador.
@@ -26,7 +24,6 @@ public class Trabajador extends Humano implements Comparable<Trabajador> {
 		super(nombre, apellidos);
 		this.sueldo = sueldo;
 		this.horasTrabajadas = horasTrabajadas;
-		this.listaTrabajadores = new ArrayList<>();
 	}
 	
 	/**
@@ -34,31 +31,18 @@ public class Trabajador extends Humano implements Comparable<Trabajador> {
 	 */
 	public Trabajador() {
 		this("Nombre", "Apellidos", 0 , 0);
-		cargarTrabajadores();
-	}
-	
-	/**
-	 * Metodo get que obtiene la lista de los trabajadores
-	 * @return listaTrabajadores - Lista en la que se almacenan trabajadores
-	 */
-	public ArrayList<Trabajador> getListaTrabajadores() {
-		return listaTrabajadores;
 	}
 	
 	/**
 	 * Metodo que carga una serie de trabajadores en el arraylist de trabajadores.
 	 */
-	public void cargarTrabajadores() {
+	public ArrayList<Trabajador> cargarTrabajadores() {
+		ArrayList<Trabajador> listaTrabajadores = new ArrayList<>();
+		
 		for (int i = 0; i < 10; i++) {
-			this.listaTrabajadores.add(new Trabajador("Nombre ", "Apellidos ", i * 2, i));
+			listaTrabajadores.add(new Trabajador("Nombre ", "Apellidos ", i * 2, i));
 		}
-	}
-
-	/**
-	 * Metodo que ordena los trabajadores por sueldo en orden inverso
-	 */
-	public void ordenarTrabajadoresBySueldo() {
-		Collections.sort(listaTrabajadores);
+		return listaTrabajadores;
 	}
 	
 	/**
