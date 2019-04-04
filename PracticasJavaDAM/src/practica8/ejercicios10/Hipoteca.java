@@ -1,4 +1,4 @@
-package practica8.ejercicio10;
+package practica8.ejercicios10;
 
 /**
  * Ejercicio 10

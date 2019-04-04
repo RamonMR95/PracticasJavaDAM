@@ -1,6 +1,6 @@
-package practica8.ejercicio10;
+package practica8.ejercicios10;
 
-import practica8.ejercicio10.Cuenta.TipoCliente;
+import practica8.ejercicios10.Cuenta.TipoCliente;
 
 /**
  * Ejercicio 10
