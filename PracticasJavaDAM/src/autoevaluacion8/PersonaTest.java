@@ -1,12 +1,19 @@
 package autoevaluacion8;
 
+/** 
+ *  Clase JUnit5 para tets de Persona según el enunciado del examen.
+ *  @source: PersonaTest.java
+ *  @version: 1.4
+ *  @author: ajp
+ */
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
 import java.util.GregorianCalendar;
 
-import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,7 +21,7 @@ import org.junit.jupiter.api.Test;
 public class PersonaTest {
 
 	//Datos para las pruebas
-	private Persona persona1;
+	private static Persona persona1;
 	private static Persona persona2;
 	
 	/**
@@ -24,7 +31,7 @@ public class PersonaTest {
 	@BeforeAll
 	public static void iniciarlizarDatosFijos() throws Exception {
 		// Objetos no modicados en las pruebas.
-			persona2 = new Proveedor("Pepe López Ruiz", "C/Luna 27, 30132 Murcia", 
+			persona1 = new Proveedor("Pepe López Ruiz", "C/Luna 27, 30132 Murcia", 
 					"+034 (968) 123 456", "pepe@gmail.com", new GregorianCalendar());
 	}
 	
@@ -34,15 +41,15 @@ public class PersonaTest {
 	 */
 	@BeforeEach 
 	public void creaProveedor() throws Exception {	
-		persona1 = new Proveedor();
+		persona2 = new Proveedor();
 	}
 
 	/**
 	 * Método que se ejecuta después de cada @Test para limpiar datos de prueba.
 	 */
-	@AfterEach	
-	public void borraProveedor() {
-		persona1 = null;
+	@AfterAll	
+	public static void borraProveedor() {
+		persona2 = null;
 	}
 
 	/**
@@ -51,8 +58,8 @@ public class PersonaTest {
 	 */
 	@Test
 	public void testSetNombre() {
-		persona1.setNombre("Pepe López Ruiz");
-		assertEquals(persona1.getNombre(), "Pepe López Ruiz");
+		persona2.setNombre("Pepe López Ruiz");
+		assertEquals(persona2.getNombre(), "Pepe López Ruiz");
 	}
 	
 	/**
@@ -61,8 +68,8 @@ public class PersonaTest {
 	 */
 	@Test
 	public void testSetDireccion() {
-		persona1.setDireccion("C/Luna 27, 30132 Murcia");	
-		assertEquals(persona1.getDireccion(), "C/Luna 27, 30132 Murcia");
+		persona2.setDireccion("C/Luna 27, 30132 Murcia");	
+		assertEquals(persona2.getDireccion(), "C/Luna 27, 30132 Murcia");
 	}
 	
 	/**
@@ -71,8 +78,8 @@ public class PersonaTest {
 	 */
 	@Test
 	public void testSetTelefono() {
-		persona1.setTelefono("+034 (968) 123 456");
-		assertEquals(persona1.getTelefono(), "+034 (968) 123 456");
+		persona2.setTelefono("+034 (968) 123 456");
+		assertEquals(persona2.getTelefono(), "+034 (968) 123 456");
 	}
 	
 	/**
@@ -81,8 +88,8 @@ public class PersonaTest {
 	 */
 	@Test
 	public void testSetCorreo() {
-		persona1.setCorreo("pepe@gmail.com");	
-		assertEquals(persona1.getCorreo(), "pepe@gmail.com");
+		persona2.setCorreo("pepe@gmail.com");	
+		assertEquals(persona2.getCorreo(), "pepe@gmail.com");
 	}
 	
 	/**
@@ -91,7 +98,7 @@ public class PersonaTest {
 	 */
 	@Test
 	public void testToString() {
-		assertNotNull(persona2.toString());
+		assertNotNull(persona1.toString());
 	}
 
 	// Test CON DATOS NO VALIDOS
@@ -103,7 +110,7 @@ public class PersonaTest {
 	@Test
 	public void testSetNombreNull() {
 		try {
-			persona1.setNombre(null);
+			persona2.setNombre(null);
 			fail("No debe llegar aquí...");
 		} 
 		catch (AssertionError e) { 
@@ -118,7 +125,7 @@ public class PersonaTest {
 	@Test
 	public void testSetDireccionNull() {
 		try {
-			persona1.setDireccion(null);
+			persona2.setDireccion(null);
 			fail("No debe llegar aquí...");
 		} 
 		catch (AssertionError e) { 
@@ -133,7 +140,7 @@ public class PersonaTest {
 	@Test
 	public void testSetTelefonoNull() {
 		try {
-			persona1.setTelefono(null);
+			persona2.setTelefono(null);
 			fail("No debe llegar aquí...");
 		} 
 		catch (AssertionError e) { 
@@ -149,7 +156,7 @@ public class PersonaTest {
 	@Test
 	public void testSetCorreoNull() {
 		try {
-			persona1.setCorreo(null);
+			persona2.setCorreo(null);
 			fail("No debe llegar aquí...");
 		} 
 		catch (AssertionError e) { 

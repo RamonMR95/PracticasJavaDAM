@@ -1,5 +1,12 @@
 package autoevaluacion8;
 
+/** 
+ *  Clase JUnit5 para tets de Proveedor según el enunciado del examen.
+ *  @source: ProveedorTest.java
+ *  @version: 1.4
+ *  @author: ajp
+ */
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotSame;
@@ -9,26 +16,26 @@ import static org.junit.Assert.fail;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-
+import org.junit.jupiter.api.Test;
 
 public class ProveedorTest {
 
 	//Datos para las pruebas
-	private Proveedor proveedor1;
+	private static Proveedor proveedor1;
 	private static Proveedor proveedor2;
+	
 	
 	/**
 	 * Método que se ejecuta una sola vez al principio del conjunto pruebas.
 	 * @throws Exception 
-	 * @throws DatosException 
 	 */
 	@BeforeAll
 	public static void iniciarlizarDatosFijos() throws Exception {
 		// Objetos no modicados en las pruebas.
-		proveedor2 = new Proveedor("Pepe López Ruiz", "C/Luna 27, 30132 Murcia", 
+		proveedor1 = new Proveedor("Pepe López Ruiz", "C/Luna 27, 30132 Murcia", 
 				"+034 (968) 123 456", "pepe@gmail.com", new GregorianCalendar());
 	}
 	
@@ -36,54 +43,55 @@ public class ProveedorTest {
 	 * Método que se ejecuta antes de cada @Test para preparar datos de prueba.
 	 * @throws Exception 
 	 */
-	@BeforeEach 
+	@BeforeEach
 	public void creaProveedor() throws Exception { 	
-		proveedor1 = new Proveedor();
+		proveedor2 = new Proveedor();
 	}
 
 	/**
 	 * Método que se ejecuta después de cada @Test para limpiar datos de prueba.
 	 */
-	@AfterEach	
-	public void borraProveedor() {
-		proveedor1 = null;
+	@AfterAll	
+	public static void borraProveedor() {
+		proveedor2 = null;
 	}
 
 	/**
 	 * Después de ejecutar el constructor convencional en el método @Before 
 	 * debe haber un objeto construido no null.
 	 */
-	@org.junit.jupiter.api.Test
+	@Test
 	public void testProveedorConvencional() {
-		assertNotNull(proveedor2);
+		assertNotNull(proveedor1);
 	}
 
 	/**
 	 * Después de ejecutar el constructor por defecto en el método @Before 
 	 * debe haber un objeto construido no null.
 	 */
-	@org.junit.jupiter.api.Test
+	@Test
 	public void testProveedorDefecto() {
-		assertNotNull(proveedor1);
+		assertNotNull(proveedor2);
 	}
 
 	/**
 	 * Después de ejecutar el constructor copia
 	 * debe haber un objeto construido que no sea el mismo.
 	 */
-	@org.junit.jupiter.api.Test
+	@Test
 	public void testProveedorCopia() {
-		Proveedor p = new Proveedor(proveedor2);
-		assertNotSame(p, proveedor2);
+		Proveedor p = new Proveedor(proveedor1);
+		assertNotSame(p, proveedor1);
 	}
 	
 	/**
-	 * Una vez se tiene un objeto, creado en el método @BeforeClas, 
+	 * Una vez se tiene un objeto, creado en el método @BeforeClass, 
 	 * debe coincidir: el valor del atributo con el valor esperado.
 	 */
-	@org.junit.jupiter.api.Test
+	@Test
 	public void testGenerarIdProveedor() {
-		assertEquals(proveedor2.getIdProveedor(), "PEP456");
+		System.out.println(proveedor1.getIdProveedor());
+		assertEquals(proveedor1.getIdProveedor(), "PEP456");
 	}
 	
 	/**
@@ -91,11 +99,11 @@ public class ProveedorTest {
 	 * debe coincidir: el valor del atributo con el valor modificado.
 	 * @throws Exception 
 	 */
-	@org.junit.jupiter.api.Test
+	@Test
 	public void testSetFechaAlta() throws Exception {
 		Calendar fec = new GregorianCalendar(2015, 4, 22);
-		proveedor1.setFechaAlta((GregorianCalendar)fec);	
-		assertSame(fec, proveedor1.getFechaAlta());
+		proveedor2.setFechaAlta((GregorianCalendar) fec);	
+		assertSame(fec, proveedor2.getFechaAlta());
 	}
 	
 	// Test CON DATOS NO VALIDOS
@@ -105,23 +113,22 @@ public class ProveedorTest {
 	 * debe fallar el aserto.
 	 * @throws Exception 
 	 */
-	@org.junit.jupiter.api.Test
+	@Test
 	public void testSetFechaAltaNull() throws Exception {
 		try {
-			proveedor2.setFechaAlta(null);
+			proveedor1.setFechaAlta(null);
 			fail("No debe llegar aquí...");
 		} 
-		catch (AssertionError e) { 
-		}
+		catch (AssertionError e) {}
 	}
 	
 	/**
 	 * Una vez inicializado un objeto en el método @Before 
 	 * debe obtenerse un texto como el esperado.
 	 */
-	@org.junit.jupiter.api.Test
+	@Test
 	public void testToString() {
-		assertNotNull(proveedor2.toString());
+		assertNotNull(proveedor1.toString());
 	}
 
 } //class
