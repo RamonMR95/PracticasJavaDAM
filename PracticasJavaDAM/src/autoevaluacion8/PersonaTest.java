@@ -1,10 +1,10 @@
 package autoevaluacion8;
 
 /** 
- *  Clase JUnit5 para tets de Persona según el enunciado del examen.
+ *  Clase JUnit5 para tests de Persona según el enunciado del examen.
  *  @source: PersonaTest.java
  *  @version: 1.4
- *  @author: ajp
+ *  @author Ramón Moñino Rubio - 01/04/2019
  */
 
 import static org.junit.Assert.assertEquals;

@@ -35,7 +35,7 @@ public class Producto {
 	 * @throws Exception
 	 */
 	public Producto() throws Exception {
-		this("Producto", 2.0, new Proveedor(), Tipo.NACIONAL);
+		this("Producto", 1, new Proveedor(), Tipo.NACIONAL);
 		
 	}
 	

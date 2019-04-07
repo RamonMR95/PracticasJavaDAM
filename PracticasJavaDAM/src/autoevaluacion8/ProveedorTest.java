@@ -1,10 +1,10 @@
 package autoevaluacion8;
 
 /** 
- *  Clase JUnit5 para tets de Proveedor según el enunciado del examen.
+ *  Clase JUnit5 para tests de Proveedor según el enunciado del examen.
  *  @source: ProveedorTest.java
  *  @version: 1.4
- *  @author: ajp
+ * 	@author Ramón Moñino Rubio - 01/04/2019
  */
 
 import static org.junit.Assert.assertEquals;
@@ -36,7 +36,7 @@ public class ProveedorTest {
 	public static void iniciarlizarDatosFijos() throws Exception {
 		// Objetos no modicados en las pruebas.
 		proveedor1 = new Proveedor("Pepe López Ruiz", "C/Luna 27, 30132 Murcia", 
-				"+034 (968) 123 456", "pepe@gmail.com", new GregorianCalendar());
+				"+034 (968) 123 456", "pepe@gmsail.com", new GregorianCalendar());
 	}
 	
 	/**
@@ -90,7 +90,6 @@ public class ProveedorTest {
 	 */
 	@Test
 	public void testGenerarIdProveedor() {
-		System.out.println(proveedor1.getIdProveedor());
 		assertEquals(proveedor1.getIdProveedor(), "PEP456");
 	}
 	

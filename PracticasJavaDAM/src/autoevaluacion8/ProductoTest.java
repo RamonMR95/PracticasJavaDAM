@@ -4,7 +4,7 @@ package autoevaluacion8;
  *  Clase JUnit5 para tets de Producto según el enunciado del examen.
  *  @source: ProductoTest.java
  *  @version: 1.4
- *  @author: ajp
+ *  @author Ramón Moñino Rubio - 01/04/2019
  */
 
 import static org.junit.Assert.assertEquals;
@@ -170,14 +170,14 @@ public class ProductoTest {
 			producto2.setPrecioCoste(0);
 		} 
 		catch (Exception e) {}	
-		assertTrue(producto2.getPrecioCoste() == 2.0);
+		assertTrue(producto2.getPrecioCoste() == 1.0);
 
 
 		try {
 			producto2.setPrecioCoste(-3.0);
 		} 
 		catch (Exception e) {}	
-		assertTrue(producto2.getPrecioCoste() == 2.0);
+		assertTrue(producto2.getPrecioCoste() == 1.0);
 	}
 	
 	/**
