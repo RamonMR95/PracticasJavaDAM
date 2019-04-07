@@ -36,7 +36,7 @@ public class ProveedorTest {
 	public static void iniciarlizarDatosFijos() throws Exception {
 		// Objetos no modicados en las pruebas.
 		proveedor1 = new Proveedor("Pepe López Ruiz", "C/Luna 27, 30132 Murcia", 
-				"+034 (968) 123 456", "pepe@gmsail.com", new GregorianCalendar());
+				"+034 (968) 123 456", "pepe@gmail.com", new GregorianCalendar());
 	}
 	
 	/**
