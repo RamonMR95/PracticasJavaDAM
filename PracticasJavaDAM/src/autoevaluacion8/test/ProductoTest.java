@@ -1,4 +1,4 @@
-package autoevaluacion8;
+package autoevaluacion8.test;
 
 /** 
  *  Clase JUnit5 para tets de Producto según el enunciado del examen.
@@ -19,6 +19,9 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import autoevaluacion8.main.Producto;
+import autoevaluacion8.main.Proveedor;
 
 public class ProductoTest {
 

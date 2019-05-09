@@ -1,4 +1,4 @@
-package autoevaluacion8;
+package autoevaluacion8.main;
 
 /**
  * Representa a cualquiera de los productos para un negocio.

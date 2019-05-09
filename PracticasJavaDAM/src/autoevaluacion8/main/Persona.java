@@ -1,4 +1,4 @@
-package autoevaluacion8;
+package autoevaluacion8.main;
 
 /** 
  *  Implementa el concepto de Persona según el enunciado del examen.
