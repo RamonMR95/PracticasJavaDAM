@@ -62,16 +62,8 @@ public class Estudiante extends Persona implements Comparable<Estudiante> {
 	 * @param o - Estudiante a ordenar
 	 */
 	@Override
-	public int compareTo(Estudiante o) {
-		int result = 0;
-		
-		if (this.evaluacion > o.evaluacion) {
-			result = -1;
-		}
-		else if (this.evaluacion < o.evaluacion) {
-			result = 1;
-		}
-		return result;
+	public int compareTo(Estudiante estudianteOtro) {
+		return Integer.compare(this.evaluacion, estudianteOtro.evaluacion);
 	}
 	
 	/**
