@@ -66,7 +66,7 @@ public class Proveedor extends Persona {
 	 * Metodo que genera un id al proveedor, según su nombre y su telefono
 	 */
 	public void generarID() {
-		this.idProveedor = nombre.substring(0, 3).toUpperCase() + telefono.substring(15);
+		this.idProveedor = nombre.substring(0, 3).toUpperCase() + telefono.substring(this.telefono.length() - 3);
 	}
 	
 	/**

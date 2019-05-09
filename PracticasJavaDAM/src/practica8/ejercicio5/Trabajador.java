@@ -4,6 +4,7 @@ public class Trabajador extends Humano {
 
 	private double sueldo;
 	private double horasTrabajadas;
+	private double sueldoPorHora;
 	
 	/**
 	 * Constructor convencional de la clase Trabajador
@@ -18,6 +19,7 @@ public class Trabajador extends Humano {
 		super(nombre, apellidos);
 		this.sueldo = sueldo;
 		this.horasTrabajadas = horasTrabajadas;
+		carcularSalarioPorHora();
 	}
 	
 	/**
@@ -57,8 +59,8 @@ public class Trabajador extends Humano {
 	 * Metodo que calcula el salario del trabajador
 	 * @param precioHora - Precio por hora
 	 */
-	public void carcularSalario(double precioHora) {
-		sueldo = horasTrabajadas * precioHora;
+	public void carcularSalarioPorHora() {
+		this.sueldoPorHora = this.sueldo / horasTrabajadas;
 	}
 	
 }

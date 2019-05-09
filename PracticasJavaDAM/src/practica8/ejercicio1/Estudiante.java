@@ -1,6 +1,7 @@
 package practica8.ejercicio1;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Ejercicio 1 - 2
@@ -72,9 +73,11 @@ public class Estudiante extends Persona implements Comparable<Estudiante> {
 	 */
 	public ArrayList<Estudiante> cargarEstudiantes() {
 		ArrayList<Estudiante> estudiantes = new ArrayList<>();
+		int nota;
 		
 		for (int i = 0; i < 10; i++) {
-			estudiantes.add(new Estudiante("Nombre" + 1, "apellidos" + 1, i + 1));
+			nota = new Random().nextInt(10);
+			estudiantes.add(new Estudiante("Nombre" + 1, "apellidos" + 1, nota));
 		}
 		return estudiantes;
 	}

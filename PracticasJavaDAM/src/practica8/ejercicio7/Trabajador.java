@@ -1,6 +1,7 @@
 package practica8.ejercicio7;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Ejercicio 7
@@ -11,19 +12,21 @@ import java.util.ArrayList;
 public class Trabajador extends Humano implements Comparable<Trabajador> {
 
 	private double sueldo;
-	private double horasTrabajadas;
+	private double precioHora;
+	private int horasTrabajadas;
 	
 	/**
 	 * Constructor convencional de la clase Trabajador.
 	 * @param nombre - Nombre del trabajador
 	 * @param apellidos - Apellidos del trabajador
-	 * @param sueldo - Sueldo del trabajador
+	 * @param precioHora - precioHora que cobra el trabajador
 	 * @param horasTrabajadas - Horas trabajadas por el trabajador
  	 */
-	public Trabajador(String nombre, String apellidos, double sueldo, double horasTrabajadas) {
+	public Trabajador(String nombre, String apellidos, double precioHora, int horasTrabajadas) {
 		super(nombre, apellidos);
-		this.sueldo = sueldo;
+		this.precioHora = precioHora;
 		this.horasTrabajadas = horasTrabajadas;
+		calcularSueldo();
 	}
 	
 	/**
@@ -33,6 +36,10 @@ public class Trabajador extends Humano implements Comparable<Trabajador> {
 		this("Nombre", "Apellidos", 0 , 0);
 	}
 	
+	public void calcularSueldo() {
+		this.sueldo = precioHora * horasTrabajadas;
+	}
+	
 	/**
 	 * Metodo que carga una serie de trabajadores en el arraylist de trabajadores.
 	 */
@@ -40,7 +47,10 @@ public class Trabajador extends Humano implements Comparable<Trabajador> {
 		ArrayList<Trabajador> listaTrabajadores = new ArrayList<>();
 		
 		for (int i = 0; i < 10; i++) {
-			listaTrabajadores.add(new Trabajador("Nombre ", "Apellidos ", i * 2, i));
+			listaTrabajadores.add(new Trabajador("Nombre ", 
+												"Apellidos ", 
+												new Random().nextInt(5) + 5, 
+												new Random().nextInt(35) + 5));
 		}
 		return listaTrabajadores;
 	}
@@ -63,7 +73,7 @@ public class Trabajador extends Humano implements Comparable<Trabajador> {
 	
 	@Override
 	public String toString() {
-		return super.toString() + ", sueldo = "+ sueldo + ", Horas : " + horasTrabajadas;
+		return super.toString() + ", sueldo = "+ sueldo + ", Horas : " + horasTrabajadas + ", precio por hora: " + precioHora;
 	}
 	
 }

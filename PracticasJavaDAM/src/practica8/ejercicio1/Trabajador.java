@@ -1,6 +1,7 @@
 package practica8.ejercicio1;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Ejercicio 1 naranja
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 public class Trabajador extends Persona implements Comparable<Trabajador>{
 	
 	private double salario;
+	private double precioHora;
 	private double horasTrabajadas;
 	
 	/**
@@ -23,11 +25,12 @@ public class Trabajador extends Persona implements Comparable<Trabajador>{
 	 * @param horasTrabajadas - Horas trabajadas por el trabajador
 	 */
 	public Trabajador(String nombre, String apellidos, 
-			double salario, double horasTrabajadas) {
+			double precioHora, double horasTrabajadas) {
 		
 		super(nombre, apellidos);
-		this.salario = salario;
+		this.precioHora = precioHora;
 		this.horasTrabajadas = horasTrabajadas;
+		calcularSueldo();
 	}
 	
 	/**
@@ -74,8 +77,8 @@ public class Trabajador extends Persona implements Comparable<Trabajador>{
 	 * Metodo que calcula el sueldo del trabajador
 	 * @param precioHora - Precio por cada hora de trabajo
 	 */
-	public void calcularSueldo(double precioHora) {
-		this.salario = horasTrabajadas * precioHora;
+	public void calcularSueldo() {
+		this.salario = this.horasTrabajadas * this.precioHora;
 	}
 	
 	/**
@@ -84,9 +87,9 @@ public class Trabajador extends Persona implements Comparable<Trabajador>{
 	 */
 	public ArrayList<Trabajador> cargarTrabajadores() {
 		ArrayList<Trabajador> trabajadores = new ArrayList<>();
-		
+
 		for (int i = 0; i < 10; i++) {
-			trabajadores.add(new Trabajador("Nombre" + 1, "apellidos" + 1, i + 1, i + 1));
+			trabajadores.add(new Trabajador("Nombre" + i, "apellidos" + i,new Random().nextInt(5) + 5, new Random().nextInt(40)));
 		}
 		return trabajadores;
 	}
@@ -114,6 +117,6 @@ public class Trabajador extends Persona implements Comparable<Trabajador>{
 	 */
 	@Override
 	public String toString() {
-		return super.toString() + ", salario : " + salario + ", horas trabajadas : " + horasTrabajadas; 
+		return super.toString() + ", salario : " + salario + ", horas trabajadas : " + horasTrabajadas + ", salario por hora : " + precioHora; 
 	}
 }

@@ -106,6 +106,7 @@ public class ProductoTest {
 	public void testSetPrecioCoste() throws Exception {
 		producto2.setPrecioCoste(2.50);	
 		assertTrue(producto2.getPrecioCoste() == 2.50);
+		
 	}
 	
 	/**

@@ -96,7 +96,7 @@ public class Producto {
 	 * @return true - Si el precio cumple con el formato
 	 */
 	public boolean isPrecioValido(double precioCoste) {
-		return precioCoste > 0;
+		return precioCoste > 0 && String.valueOf(precioCoste).split("\\.")[1].length() < 4;
 	}
 
 	/**
