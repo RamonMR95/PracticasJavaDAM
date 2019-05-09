@@ -16,11 +16,11 @@ public class Main {
 		Animales gatito = new Gatito(1, "Gatito", "Macho");
 		Animales tigre = new Tigre(14, "Tigresa", "Hembra");
 		
-		System.out.println("Perro = " + perro + ", hace sonido : " + perro.sonidoCaracteristico());
-		System.out.println("Rana = " + rana + ", hace sonido : " + rana.sonidoCaracteristico());
-		System.out.println("Gato = " + gato + ", hace sonido : " + gato.sonidoCaracteristico());
-		System.out.println("Gatito = " + gatito + ", hace sonido : " + gatito.sonidoCaracteristico());
-		System.out.println("Tigre = " + tigre + ", hace sonido : " + tigre.sonidoCaracteristico());
+		System.out.println(perro);
+		System.out.println(rana);
+		System.out.println(gato);
+		System.out.println(gatito);
+		System.out.println(tigre);
 		
 	}
 

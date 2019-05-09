@@ -32,6 +32,6 @@ public abstract class Animales {
 	
 	@Override
 	public String toString() {
-		return "Edad : " + edad + ", Nombre : " + nombre + ", sexo : " + sexo;
+		return "Edad : " + edad + ", Nombre : " + nombre + ", sexo : " + sexo + ", sonido caracteristico: " + sonidoCaracteristico();
 	}
 }
