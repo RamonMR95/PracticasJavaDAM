@@ -12,7 +12,7 @@ public abstract class Cuenta {
 	protected TipoCliente tipoCliente;
 	protected String nombre;
 	protected  double saldo;
-	protected  double interesMensual;
+	protected  double tipoInteres;
 	
 	/**
 	 * Constructor convencional de la clase Cuenta.
@@ -21,10 +21,10 @@ public abstract class Cuenta {
 	 * @param interesMensual - Interes mensual de la cuenta.
 	 * @param tipoCliente - Tipo de cliente propietario de la cuenta.
 	 */
-	public Cuenta(String nombre, double saldo, double interesMensual, TipoCliente tipoCliente) {
+	public Cuenta(String nombre, double saldo, double tipoInteres, TipoCliente tipoCliente) {
 		this.nombre = nombre;
 		this.saldo = saldo;
-		this.interesMensual = interesMensual;
+		this.tipoInteres = tipoInteres;
 		this.tipoCliente = tipoCliente;
 	}
 	
@@ -33,7 +33,7 @@ public abstract class Cuenta {
 	
 	@Override
 	public String toString() {
-		return "Nombre : " + nombre + ", saldo " + saldo + ", interesMensual " + interesMensual + "%, tipoCliente " + tipoCliente;
+		return "Nombre : " + nombre + ", saldo " + saldo + ", tipoInteres " + tipoInteres + " %, tipoCliente " + tipoCliente;
 	}
 	
 }

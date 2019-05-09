@@ -14,11 +14,11 @@ public class Deposito extends Cuenta implements Interesable {
 	 * Construcción convencional de la clase Deposito.
 	 * @param nombre - Nombre de la cuenta.
 	 * @param saldo - Saldo actual de la cuenta.
-	 * @param interesMensual - Interes mensual de la cuenta.
+	 * @param tipoInteres - tipo de Interes de la cuenta.
 	 * @param tipoCliente - Tipo de cliente propietario de la cuenta.
 	 */
-	public Deposito(String nombre, double saldo, double interesMensual, TipoCliente tipoCliente) {
-		super(nombre, saldo, interesMensual, tipoCliente);
+	public Deposito(String nombre, double saldo, double tipoInteres, TipoCliente tipoCliente) {
+		super(nombre, saldo, tipoInteres, tipoCliente);
 		
 	}
 
@@ -48,11 +48,10 @@ public class Deposito extends Cuenta implements Interesable {
 	/**
 	 * Metodo que calcula el interés mensual al que estará sujeto la cuenta.
 	 * @param numeroMeses - Numero de meses del prestamo.
-	 * @param tipoInteres - Tipo de interes de la cuenta.
-	 * @return interes - Interes mensual.
+	 * @return interes - Interes total de la cuenta.
 	 */
 	@Override
-	public double interesMensual(int numeroMeses, double tipoInteres) {
+	public double interesTotal(int numeroMeses) {
 		if (saldo >= 1000) {
 			return numeroMeses * tipoInteres;
 		}

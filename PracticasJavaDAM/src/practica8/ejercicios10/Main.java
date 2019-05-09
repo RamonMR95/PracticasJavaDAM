@@ -13,8 +13,8 @@ public class Main {
 	public static void main(String[] args)  {
 		
 		/* DEPOSITO */
-		Deposito deposito = new Deposito("Ramón Moñino Rubio", 100000, 0.05, TipoCliente.PARTICULAR);
-		System.out.println("El tipo de interes mensual del deposito es : " + deposito.interesMensual(5, deposito.interesMensual));
+		Deposito deposito = new Deposito("Ramón Moñino Rubio", 5000, 0.05, TipoCliente.PARTICULAR);
+		System.out.println("El tipo de interes total del deposito es : " + deposito.interesTotal(5) + " = "+ (deposito.interesTotal(5) * deposito.saldo + "€"));
 		System.out.println(deposito);
 		deposito.depositar(5000);
 		System.out.println(deposito);
@@ -29,7 +29,7 @@ public class Main {
 		
 		/* HIPOTECA */
 		Hipoteca hipoteca = new Hipoteca("Daniel Fernandez", 2000, 0.07, TipoCliente.PARTICULAR);
-		System.out.println("El tipo de interes mensual de la hipoteca es : " + hipoteca.interesMensual(2, hipoteca.interesMensual));
+		System.out.println("El tipo de interes total de la hipoteca es : " + hipoteca.interesTotal(2) + hipoteca.interesTotal(5) + " = "+ (hipoteca.interesTotal(5) * hipoteca.saldo + "€"));
 		System.out.println(hipoteca);
 		hipoteca.depositar(5000);
 		System.out.println(hipoteca);
@@ -44,7 +44,7 @@ public class Main {
 		
 		/* CREDITO */
 		Credito credito = new Credito("ONO", 50000000, 0.08, TipoCliente.EMPRESA);
-		System.out.println("El tipo de interes mensual del credito es : " + credito.interesMensual(15, credito.interesMensual));
+		System.out.println("El tipo de interes total del credito es : " + credito.interesTotal(15) + " = "+ (credito.interesTotal(5) * credito.saldo + "€"));
 		System.out.println(credito);
 		credito.depositar(5000);
 		System.out.println(credito);
