@@ -10,14 +10,14 @@ public class Trabajador extends Humano {
 	 * Constructor convencional de la clase Trabajador
 	 * @param nombre - Nombre del trabajador
 	 * @param apellidos - Apellidos del trabajador
-	 * @param sueldo - Sueldo del trabajador
+	 * @param sueldoPorHora - sueldoPorHora del trabajador
 	 * @param horasTrabajadas - Horas trabajadas por el trabajador
 	 */
 	public Trabajador(String nombre, String apellidos, 
-			double sueldo, double horasTrabajadas) {
+			double sueldoPorHora, double horasTrabajadas) {
 		
 		super(nombre, apellidos);
-		this.sueldo = sueldo;
+		this.sueldoPorHora = sueldoPorHora;
 		this.horasTrabajadas = horasTrabajadas;
 		carcularSalarioPorHora();
 	}
@@ -60,7 +60,7 @@ public class Trabajador extends Humano {
 	 * @param precioHora - Precio por hora
 	 */
 	public void carcularSalarioPorHora() {
-		this.sueldoPorHora = this.sueldo / horasTrabajadas;
+		this.sueldoPorHora = this.sueldo / this.horasTrabajadas;
 	}
 	
 }

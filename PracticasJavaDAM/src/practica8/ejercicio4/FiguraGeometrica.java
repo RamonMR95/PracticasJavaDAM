@@ -26,7 +26,7 @@ public abstract class FiguraGeometrica {
 	 * Constructor por defecto de la clase {@link FiguraGeometrica}
 	 */
 	public FiguraGeometrica() {
-		this(0,0);
+		this(0, 0);
 	}
 	
 	/**

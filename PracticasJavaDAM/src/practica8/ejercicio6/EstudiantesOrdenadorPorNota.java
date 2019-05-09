@@ -2,7 +2,6 @@ package practica8.ejercicio6;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * Ejercicio 6 verde

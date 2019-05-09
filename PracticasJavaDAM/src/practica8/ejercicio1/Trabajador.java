@@ -21,7 +21,7 @@ public class Trabajador extends Persona implements Comparable<Trabajador>{
 	 * Constructor convencional de la clase Trabajador
 	 * @param nombre - Nombre del trabajador
 	 * @param apellidos - Apellidos del trabajador
-	 * @param salario - Salario del trabajador
+	 * @param precioHora - Precio por hora que cobra el trabajador
 	 * @param horasTrabajadas - Horas trabajadas por el trabajador
 	 */
 	public Trabajador(String nombre, String apellidos, 
@@ -75,7 +75,6 @@ public class Trabajador extends Persona implements Comparable<Trabajador>{
 	
 	/**
 	 * Metodo que calcula el sueldo del trabajador
-	 * @param precioHora - Precio por cada hora de trabajo
 	 */
 	public void calcularSueldo() {
 		this.salario = this.horasTrabajadas * this.precioHora;
