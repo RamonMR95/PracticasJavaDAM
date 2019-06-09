@@ -1,4 +1,4 @@
-package practica9;
+package autoevaluacion9;
 
 /** 
  *  Interface para organizar las pruebas de las clases según enunciado de examen.
@@ -7,19 +7,26 @@ package practica9;
  *  @author: ajp
  */
 import org.junit.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 public interface PruebasBasicas {
     /**
      * Método que se ejecuta antes de cada @Test para preparar datos de prueba.
      */
-    @Before
-    void crearObjetosPrueba();
+    @BeforeAll
+    static void crearObjetosPrueba() {
+
+    };
 
     /**
      * Método que se ejecuta después de cada @Test para limpiar datos de prueba.
      */
-    @After
-    void borrarObjetosPrueba();
+    @AfterAll
+    static void borrarObjetosPrueba(){
+
+    };
 
     /**
      * Prueba constructor normal con parámetros correctos para los atributos.

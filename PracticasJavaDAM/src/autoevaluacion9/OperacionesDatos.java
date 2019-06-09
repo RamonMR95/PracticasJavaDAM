@@ -1,4 +1,4 @@
-package practica9;
+package autoevaluacion9;
 
 /** 
  *  Interfaz con las operaciones previstas del almacén de datos según el enunciado de examen.
